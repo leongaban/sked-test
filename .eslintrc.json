@@ -12,6 +12,7 @@
     "no-console": "off",
     "func-names": "off",
     "no-underscore-dangle": "off",
+    "no-unused-vars": "warn",
     "consistent-return": "off",
     "jest/expect-expect": "off",
     "security/detect-object-injection": "off"
