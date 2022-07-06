@@ -1,31 +1,88 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+// import { useDispatch } from 'react-redux';
 import AccountsSideBar from './AccountsSideBar.jsx';
 import Posts from '../Posts/Posts.jsx';
 
-import { getAllPosts } from '../../redux/actions/postsActions';
-import { getAllAccounts } from '../../redux/actions/accountsActions';
+// import { getAllPosts } from '../../redux/actions/postsActions';
+// import { getAllAccounts } from '../../redux/actions/accountsActions';
 
 const AccountsView = () => {
-  const dispatch = useDispatch();
+  // Redux solution:
+  // const dispatch = useDispatch();
 
-  const fetchPosts = () => {
-    try {
-      dispatch(getAllPosts());
-    } catch (error) {
-      console.log('error', error);
-    }
+  // const fetchPosts = () => {
+  //   try {
+  //     dispatch(getAllPosts());
+  //   } catch (error) {
+  //     console.log('error', error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchPosts();
+  //   dispatch(getAllAccounts());
+  // }, []);
+
+  const [filtered, setFiltered] = useState({
+    facebook: true,
+    instagram: true,
+  });
+
+  const socialAccounts = [
+    {
+      name: 'FB account',
+      socialMedia: 'facebook',
+      initial: 'J',
+    },
+    {
+      name: 'IG account',
+      socialMedia: 'instagram',
+      initial: 'J',
+    },
+  ];
+
+  const scheduledPosts = [
+    {
+      name: 'FB account',
+      socialMedia: 'facebook',
+      initial: 'J',
+      caption: 'caption',
+      timestamp: 'Sat 30 Oct, 6:00pm',
+    },
+    {
+      name: 'IG account',
+      socialMedia: 'instagram',
+      initial: 'J',
+      caption: 'test',
+      timestamp: 'Sat 30 Oct, 9:00am',
+    },
+  ];
+
+  const isMatch = (val) => {
+    const hasFacebook = filtered.facebook ? 'facebook' : '';
+    const hasInstagram = filtered.instagram ? 'instagram' : '';
+    return val.socialMedia === hasFacebook || val.socialMedia === hasInstagram;
   };
 
-  useEffect(() => {
-    fetchPosts();
-    dispatch(getAllAccounts());
-  }, []);
+  const prepPosts = (allPosts) => {
+    return allPosts.filter(isMatch);
+  };
+
+  let myPosts = prepPosts(scheduledPosts, filtered);
+
+  const filterPosts = (checkedAccounts) => {
+    setFiltered(() => {
+      const newState = { ...checkedAccounts };
+      return newState;
+    });
+
+    return checkedAccounts;
+  };
 
   return (
     <main className="accounts-view">
-      <AccountsSideBar />
-      <Posts />
+      <AccountsSideBar accounts={socialAccounts} filterPosts={filterPosts} />
+      <Posts scheduledPosts={myPosts} />
     </main>
   );
 };
