@@ -1,28 +1,29 @@
 import { Actions } from '../actions/postsActions';
 
 export const defaultPostsState = {
-  posts: [
-    {
-      socialMedia: 'Facebook',
-      socialAbbr: 'FB',
-      icon: '',
-      initial: 'J',
-      caption: 'caption',
-      timestamp: 'Sat 30 Oct, 6:00pm',
-    },
-    {
-      socialMedia: 'Instagram',
-      socialAbbr: 'IG',
-      icon: '',
-      initial: 'J',
-      caption: 'test',
-      timestamp: 'Sat 30 Oct, 9:00am',
-    },
-  ],
+  posts: [],
+  // posts: [
+  //   {
+  //     socialMedia: 'Facebook',
+  //     socialAbbr: 'FB',
+  //     icon: '',
+  //     initial: 'J',
+  //     caption: 'caption',
+  //     timestamp: 'Sat 30 Oct, 6:00pm',
+  //   },
+  //   {
+  //     socialMedia: 'Instagram',
+  //     socialAbbr: 'IG',
+  //     icon: '',
+  //     initial: 'J',
+  //     caption: 'test',
+  //     timestamp: 'Sat 30 Oct, 9:00am',
+  //   },
+  // ],
   loading: true,
 };
 
-const PostsReducer = (state = defaultPostsState, action) => {
+export const PostsReducer = (state = defaultPostsState, action) => {
   switch (action.type) {
     // case Actions.GET_ALL_POSTS: {
     //   const { loading } = action;
@@ -47,5 +48,3 @@ const PostsReducer = (state = defaultPostsState, action) => {
       return state;
   }
 };
-
-export { PostsReducer as default };
