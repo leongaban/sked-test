@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
-const Posts = () => {
-  const postsState = useSelector((state) => state.posts);
+const Posts = ({ myPosts }) => {
+  console.log('myPosts', myPosts);
+  // const postsState = useSelector((state) => state.posts);
 
   const listPosts = (posts) =>
     posts.map((post, i) => (
@@ -14,7 +15,7 @@ const Posts = () => {
   return (
     <div>
       Posts
-      {listPosts(postsState.posts)}
+      {/* {listPosts(postsState.posts)} */}
     </div>
   );
 };
