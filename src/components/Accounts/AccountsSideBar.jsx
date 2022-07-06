@@ -6,16 +6,6 @@ const AccountsSideBar = ({ accounts, filterPosts }) => {
   // Redux solution:
   // const accounts = useSelector((state) => state.Accounts);
 
-  // const createCheckBoxState = (accounts) => (accounts.map((acct, i) => ({
-  //   [`account${i}`]: false
-  // }));
-
-  // const checkBoxState = createCheckBoxState(accounts);
-
-  // let checkBoxState = Object.assign({}, ...Object.entries(obj).map(([k, v]) => ({[k]: v * v})));
-
-  // console.log('checkBoxState', checkBoxState);
-
   const [checkedAll, setCheckedAll] = useState(false);
   const [checked, setChecked] = useState({
     facebook: true,

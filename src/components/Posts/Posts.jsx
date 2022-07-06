@@ -7,11 +7,12 @@ const Posts = ({ scheduledPosts }) => {
   // const postsState = useSelector((state) => state.posts);
 
   const socialIcon = (name) => (name === 'FB account' ? '/images/fb-icon.svg' : '/images/ig-icon.svg');
+  const iconBg = (name) => (name === 'FB account' ? 'icon light-blue-bg' : 'icon light-pink-bg');
 
   const listPosts = (posts) =>
     posts.map((post, i) => (
       <div className="post-row" key={i}>
-        <div className="icon">
+        <div className={iconBg(post.name)}>
           <img src={socialIcon(post.name)} width="20" />
         </div>
         <div className="post-info">

@@ -11,6 +11,7 @@
     "client-dev": "react-scripts start",
     "client-build": "react-scripts build",
     "client-test": "react-scripts test ./src",
+    "client-coverage": "react-scripts test ./src --coverage",
     "client-eject": "react-scripts eject",
     "server-dev": "cross-env NODE_ENV=development nodemon server/src/index.js",
     "server-test": "jest -i --watchAll",

@@ -76,6 +76,7 @@ const AccountsView = () => {
       return newState;
     });
 
+    console.log('checkedAccounts', checkedAccounts);
     return checkedAccounts;
   };
 

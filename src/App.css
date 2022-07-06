@@ -83,6 +83,8 @@
   margin-top: 0.5em;
 }
 
+/* colors */
+
 .blue-bg {
   background: #1740a1;
 }
@@ -93,6 +95,14 @@
 
 .white-tx {
   color: #fff;
+}
+
+.light-pink-bg {
+  background: #f9f0f8;
+}
+
+.light-blue-bg {
+  background: #e1ecf4;
 }
 
 /* Posts View */
@@ -112,6 +122,10 @@
   box-shadow: 1px 3px 3px #ccc;
 }
 
+.post-info {
+  margin-left: 2em;
+}
+
 .icon {
   display: grid;
   justify-content: center;
@@ -125,7 +139,7 @@
 
 .timestamp {
   position: relative;
-  left: -53px;
+  left: -85px;
   border-radius: 5px;
   box-shadow: 1px 3px 3px #ccc;
   background: #fff;
