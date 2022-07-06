@@ -2,15 +2,19 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Posts = () => {
-  const posts = useSelector((state) => state.posts);
+  const postsState = useSelector((state) => state.posts);
+
+  const listPosts = (posts) =>
+    posts.map((post, i) => (
+      <li key={i}>
+        {post.accountId} | {post.timestamp}
+      </li>
+    ));
 
   return (
     <div>
       Posts
-      {/* <ul>
-        <li>{posts[0].socialMedia}</li>
-        <li>{posts[1].socialMedia}</li>
-      </ul> */}
+      {listPosts(postsState.posts)}
     </div>
   );
 };

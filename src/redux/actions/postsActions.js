@@ -1,35 +1,29 @@
-// IMPORTS / utils / apis
 import { get } from '../../controllers/posts';
 
 // ACTION TYPES
 export const Actions = {
-  GET_ALL_POSTS: 'GET_ALL_POSTS',
-  SET_ALL_POSTS: 'SET_ALL_POSTS',
+  GET_POSTS: 'GET_POSTS',
+  SET_POSTS: 'SET_POSTS',
   POSTS_ERROR: 'POSTS_ERROR',
   ADD_POST: 'ADD_POST',
 };
 
-// ACTION CREATORS
-// const actionGetAllPosts = () => ({ type: Actions.GET_ALL_POSTS, loading: true });
-
-// const actionSetAllPosts = (posts) => ({ type: Actions.SET_ALL_POSTS, posts, loading: false });
-
 // ACTIONS
 
-// Filter all Posts
+// Filter Posts
 // export const filterPostsAction = (posts, filter) => (dispatch) => {
 //   // Logic to filter here...
 //   dispatch(actionSetAllPosts(posts));
 // };
 
 // Set Posts
-async function setPostsAction(dispatch, url) {
+async function setPostsAction(dispatch) {
   try {
     const posts = await get();
-    console.log('posts', posts);
     dispatch({
-      type: Actions.SET_ALL_POSTS,
+      type: Actions.SET_POSTS,
       posts,
+      loading: false,
     });
   } catch (err) {
     dispatch({
@@ -37,18 +31,13 @@ async function setPostsAction(dispatch, url) {
       posts: [],
     });
   }
-  dispatch({
-    type: Actions.SET_ALL_POSTS,
-    loading: false,
-  });
 }
 
 // Get Posts
 export const getAllPosts = () => {
-  console.log('getAllPosts...');
   return (dispatch) => {
     dispatch({
-      type: Actions.GET_ALL_POSTS,
+      type: Actions.GET_POSTS,
       loading: true,
     });
     setPostsAction(dispatch);
