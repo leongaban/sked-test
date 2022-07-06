@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import Circle from '../partials/Circle.jsx';
 
 const AccountsSideBar = ({ accounts, filterPosts }) => {
   // Redux solution:
@@ -56,17 +57,13 @@ const AccountsSideBar = ({ accounts, filterPosts }) => {
     }
   }, [checked]);
 
-  const circleClasser = (acct) => (acct.name === 'FB account' ? 'circle yellow-bg' : 'circle blue-bg white-tx');
-
   const listAccounts = (accts) =>
     accts.map((acct, i) => (
       <li key={i}>
         <div className="checkbox">
           <input type="checkbox" onChange={() => toggleCheck(acct.socialMedia)} checked={checked[acct.socialMedia]} />
         </div>
-        <div className={circleClasser(acct)}>
-          <p>{acct.initial}</p>
-        </div>
+        <Circle initial={acct.initial} name={acct.name} />
         <p>{acct.name}</p>
       </li>
     ));

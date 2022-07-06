@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+// import { useDispatch } from 'react-redux';
 import AccountsSideBar from './AccountsSideBar.jsx';
 import Posts from '../Posts/Posts.jsx';
 
-import { getAllPosts } from '../../redux/actions/postsActions';
-import { getAllAccounts } from '../../redux/actions/accountsActions';
+// import { getAllPosts } from '../../redux/actions/postsActions';
+// import { getAllAccounts } from '../../redux/actions/accountsActions';
 
 const AccountsView = () => {
   // Redux solution:
@@ -22,6 +22,11 @@ const AccountsView = () => {
   //   fetchPosts();
   //   dispatch(getAllAccounts());
   // }, []);
+
+  const [filtered, setFiltered] = useState({
+    facebook: true,
+    instagram: true,
+  });
 
   const socialAccounts = [
     {
@@ -53,11 +58,24 @@ const AccountsView = () => {
     },
   ];
 
-  let myPosts = scheduledPosts;
+  const isMatch = (val) => {
+    const hasFacebook = filtered.facebook ? 'facebook' : '';
+    const hasInstagram = filtered.instagram ? 'instagram' : '';
+    return val.socialMedia === hasFacebook || val.socialMedia === hasInstagram;
+  };
+
+  const prepPosts = (allPosts) => {
+    return allPosts.filter(isMatch);
+  };
+
+  let myPosts = prepPosts(scheduledPosts, filtered);
 
   const filterPosts = (checkedAccounts) => {
-    console.log(`filterPosts checkedAccounts:`);
-    console.log(checkedAccounts);
+    setFiltered(() => {
+      const newState = { ...checkedAccounts };
+      return newState;
+    });
+
     return checkedAccounts;
   };
 
