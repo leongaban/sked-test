@@ -13,6 +13,8 @@
     "client-test": "react-scripts test ./src",
     "client-coverage": "react-scripts test ./src --coverage",
     "client-eject": "react-scripts eject",
+    "cypress-test": "cypress run --headed --no-exit",
+    "cypress-run": "cypress run",
     "server-dev": "cross-env NODE_ENV=development nodemon server/src/index.js",
     "server-test": "jest -i --watchAll",
     "lint": "eslint .",
@@ -82,6 +84,7 @@
   "devDependencies": {
     "coveralls": "^3.0.7",
     "cypress": "^10.3.0",
+    "cypress-react-selector": "^2.3.20",
     "eslint": "^7.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^8.1.0",
