@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import AccountsSideBar from './AccountsSideBar.jsx';
 import Posts from '../Posts/Posts.jsx';
 

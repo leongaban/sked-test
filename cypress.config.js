@@ -7,4 +7,10 @@ module.exports = {
       // implement node event listeners here
     },
   },
+
+  env: {
+    cypressReactSelector: {
+      root: '#root'
+    }
+  }
 };

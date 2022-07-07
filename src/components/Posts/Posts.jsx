@@ -18,7 +18,7 @@ const Posts = ({ scheduledPosts }) => {
         <div className="post-info">
           <div className="timestamp">{post.timestamp}</div>
           <Circle initial={post.initial} name={post.name} />
-          <p>{post.name}</p>
+          <p className="post-name">{post.name}</p>
           <div className="caption">
             <strong>Caption:</strong>
             <p>{post.caption}</p>
