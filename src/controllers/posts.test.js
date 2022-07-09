@@ -23,16 +23,6 @@ const mockData = [
   }
 ];
 
-global.fetch = jest.fn(() => 
-  Promise.resolve({
-    json: () => Promise.resolve(mockData)
-  })
-);
-
-jest.mock('./posts', () => ({
-  get: jest.fn(() => mockData),
-}));
-
 beforeAll(() => {
   global.fetch = () =>
     Promise.resolve({
@@ -43,8 +33,6 @@ beforeAll(() => {
 describe('The posts API controller', () => {
   test('get() returns expected payload', async () => {
     const result = await get();
-    console.log('result', result);
-    expect(get).toHaveBeenCalledTimes(1);
     expect(result).toEqual(mockData);
   });
 });
