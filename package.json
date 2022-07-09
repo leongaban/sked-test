@@ -45,6 +45,26 @@
     "eslint",
     "prettier"
   ],
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "index.jsx",
+      "index.js",
+      "reportWebVitals.js",
+      "server/src/config",
+      "store.js",
+      "tests"
+    ],
+    "watchPathIgnorePatterns": [
+      "node_modules",
+      "index.jsx",
+      "index.js",
+      "reportWebVitals.js",
+      "server/src/config",
+      "store.js",
+      "tests"
+    ]
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.11.4",
