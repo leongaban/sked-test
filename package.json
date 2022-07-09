@@ -11,7 +11,10 @@
     "client-dev": "react-scripts start",
     "client-build": "react-scripts build",
     "client-test": "react-scripts test ./src",
+    "client-coverage": "react-scripts test ./src --coverage",
     "client-eject": "react-scripts eject",
+    "cypress-test": "cypress run --headed --no-exit",
+    "cypress-run": "cypress run",
     "server-dev": "cross-env NODE_ENV=development nodemon server/src/index.js",
     "server-test": "jest -i --watchAll",
     "lint": "eslint .",
@@ -42,7 +45,28 @@
     "eslint",
     "prettier"
   ],
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "index.jsx",
+      "index.js",
+      "reportWebVitals.js",
+      "server/src/config",
+      "store.js",
+      "tests"
+    ],
+    "watchPathIgnorePatterns": [
+      "node_modules",
+      "index.jsx",
+      "index.js",
+      "reportWebVitals.js",
+      "server/src/config",
+      "store.js",
+      "tests"
+    ]
+  },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -67,7 +91,9 @@
     "pm2": "^5.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^8.0.2",
     "react-scripts": "4.0.3",
+    "redux-thunk": "^2.4.1",
     "swagger-jsdoc": "^6.0.8",
     "swagger-ui-express": "^4.1.6",
     "validator": "^13.0.0",
@@ -77,9 +103,12 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.7",
+    "cypress": "^10.3.0",
+    "cypress-react-selector": "^2.3.20",
     "eslint": "^7.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^24.0.1",
     "eslint-plugin-prettier": "^3.1.1",

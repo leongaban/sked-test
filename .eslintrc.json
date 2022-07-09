@@ -3,15 +3,29 @@
     "node": true,
     "jest": true
   },
-  "extends": ["airbnb-base", "plugin:jest/recommended", "plugin:security/recommended", "plugin:prettier/recommended"],
+  "extends": [
+    "airbnb-base",
+    "plugin:jest/recommended",
+    "plugin:security/recommended",
+    "plugin:prettier/recommended",
+    "plugin:cypress/recommended"
+  ],
+  "globals": {
+    "cy": true
+  },
   "plugins": ["jest", "security", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2018
   },
   "rules": {
+    "react/react-in-jsx-scope": "off",
     "no-console": "off",
     "func-names": "off",
     "no-underscore-dangle": "off",
+    "no-unused-vars": "warn",
+    "no-restricted-syntax": "off",
+    "guard-for-in": "off",
+    "prefer-const": "off",
     "consistent-return": "off",
     "jest/expect-expect": "off",
     "security/detect-object-injection": "off"
