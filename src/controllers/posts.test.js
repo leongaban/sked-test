@@ -29,11 +29,22 @@ global.fetch = jest.fn(() =>
   })
 );
 
+jest.mock('./posts', () => ({
+  get: jest.fn(() => mockData),
+}));
+
+beforeAll(() => {
+  global.fetch = () =>
+    Promise.resolve({
+      json: () => Promise.resolve(mockData)
+    })
+});
+
 describe('The posts API controller', () => {
   test('get() returns expected payload', async () => {
-    // const result = await get();
-    // console.log('result', result);
-    // expect(fetch).toHaveBeenCalledTimes(1);
-    // expect(result).toBeTruthy();
+    const result = await get();
+    console.log('result', result);
+    expect(get).toHaveBeenCalledTimes(1);
+    expect(result).toEqual(mockData);
   });
 });
