@@ -11,10 +11,6 @@ export const Actions = {
 // ACTIONS
 
 // Filter Posts
-// export const filterPostsAction = (posts, filter) => (dispatch) => {
-//   // Logic to filter here...
-//   dispatch(actionSetAllPosts(posts));
-// };
 
 // Set Posts
 async function setPostsAction(dispatch) {
@@ -43,9 +39,3 @@ export const getAllPosts = () => {
     setPostsAction(dispatch);
   };
 };
-
-// Add a Post to Posts.
-
-// Update a Post in Posts.
-
-// Remove a Post from Posts.
