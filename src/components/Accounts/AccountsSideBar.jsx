@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
 import Circle from '../partials/Circle.jsx';
 
 const AccountsSideBar = ({ accounts, filterPosts }) => {
-  console.log('accounts', accounts);
   // Redux solution:
   // const accounts = useSelector((state) => state.Accounts);
 
@@ -54,6 +52,7 @@ const AccountsSideBar = ({ accounts, filterPosts }) => {
         <div className="checkbox">
           <input
             type="checkbox"
+            data-testid={`check${i}`}
             id={`check${i}`}
             onChange={() => toggleCheck(acct.socialMedia)}
             checked={checked[acct.socialMedia]}
